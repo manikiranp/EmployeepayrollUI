@@ -1,12 +1,11 @@
 
-
 body { 
     margin: 0;
     height: 100%;
 }
 .header {
-    padding: 25px;
-    background: #ffffff
+    padding: 15px;
+    background: #e9f4f5
 }
 
 .header-content {
@@ -40,10 +39,6 @@ body {
     color:#42515F;
 }
 * {box-sizing: content-box;}
-@media only screen and (max-width: 960px){
-    .form{
-        width: 85%;
-        padding: 44px 20px;
-    }
-}
+ }
+
  
