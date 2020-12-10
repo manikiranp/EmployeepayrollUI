@@ -1,4 +1,4 @@
-
+ 
 body { 
     margin: 0;
     height: 100%;
@@ -16,6 +16,7 @@ body {
     border: 0px solid green;
 
 }
+
 .logo-content {
     display: flex;
     flex-direction: row;
@@ -132,6 +133,7 @@ select{
     padding: 7px 7px;
     border: 1px solid #707070;
     cursor: pointer;
+    
 }
 .button:hover {
     background-color: rgb(190, 190, 190);
@@ -149,6 +151,11 @@ select{
 }
 .cancelButton:hover {
     background: #e6bc7d;
+}
+error-output{
+    font-size: 12px;
+    font-style: italic;
+    color: rgb(230, 125, 125);
 }
 @media only screen and (max-width: 960px){
     .form{
