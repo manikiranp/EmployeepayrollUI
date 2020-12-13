@@ -7,7 +7,6 @@ body {
     padding: 15px;
     background: #ffffff
 }
-
 .header-content {
     display: flex;
     flex-direction: row;
@@ -16,7 +15,6 @@ body {
     border: 0px solid green;
 
 }
-
 .logo-content {
     display: flex;
     flex-direction: row;
@@ -153,9 +151,8 @@ select{
     background: #e6bc7d;
 }
 error-output{
-    font-size: 12px;
-    font-style: italic;
     color: rgb(230, 125, 125);
+    font: normal normal italic 15px/20px Roboto;
 }
 @media only screen and (max-width: 960px){
     .form{
@@ -168,7 +165,8 @@ error-output{
         margin-top: 10px;
     }
     .row {
-        flex-direction: column;
+  
+      flex-direction: column;
     }
     .buttonParent{
         flex-direction: column-reverse;
