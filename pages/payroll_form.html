@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/payroll_form.css">
     <title>Employee Payroll Form</title>
     <script defer src="../js/EmployeePayrollData.js"></script>
-    <script defer src="../js/datavalidation.js"></script>
+    <script defer src="../js/Datavalidation.js"></script>
 </head>
 <body>
     <!--UC1-->
@@ -22,7 +22,7 @@
         </div>
     </header>
     <div class="form-content">
-        <form class="form" action="#" onsubmit="save()">
+        <form class="form" action="#" onreset="resetForm()" onsubmit="save()">
             <div class="form-head">Employee Payroll form</div>
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
@@ -156,7 +156,5 @@
     </div>
     </form>
 </div>
-
-
 </body>
 </html> 
