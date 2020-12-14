@@ -25,17 +25,19 @@ window.addEventListener('DOMContentLoaded', () => {
 const save = () => {
     try {
         let employeePayrollData=createEmployeePayroll();
+        createAndUpdateStorage(employeePayrollData);
     } catch (e) {
         return;
+        
     }
-    }
+}
 
 const createEmployeePayroll=() => {
     let employeePayrollData = new EmployeePayrollData();
     try {
         employeePayrollData.name=getInputValueById('#name');
     } catch (e) {
-        setTextValue('.name-error', e);
+        setTextValue('.text-error', e);
         throw e;
     }
     employeePayrollData.profilePic = getSelectedValues('[name=profile]').pop();
@@ -62,7 +64,16 @@ const getInputValueById = (id) => {
     return value;
 }
 
-
+function createAndUpdateStorage(employeePayrollData) {
+    let employeePayrollList =JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    if(employeePayrollList != undefined) {
+        employeePayrollList.push(employeePayrollData);
+    } else {
+        employeePayrollList = [employeePayrollData]
+    }
+    alert(employeePayrollList.toString());
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList))
+}
 
 
 
