@@ -34,12 +34,11 @@ class EmployeePayrollData {
         this._note = note; }
 
     get startDate() { return this._startDate }
-    set startDate(startDate) {  
-        if(startDate < new Date()) {
-        this._startDate = startDate; }
-        else {
-            return "Invalid date";
-        }
+    set startDate(startDate) { 
+        let today = new Date();
+        if (startDate > today) 
+          this._startDate = startDate;
+        else throw 'Future date is not allowed';
     }
 
     //method
