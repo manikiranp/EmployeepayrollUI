@@ -35,7 +35,11 @@ class EmployeePayrollData {
 
     get startDate() { return this._startDate }
     set startDate(startDate) { 
-        this._startDate = startDate; }
+        let today = new Date();
+        if (startDate > today) 
+          this._startDate = startDate;
+        else throw 'Future date is not allowed';
+    }
 
     //method
     toString() {
