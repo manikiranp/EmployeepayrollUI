@@ -80,7 +80,7 @@
         <output class="salary-output text" for="salary"> 400000</output>
     </div>
     <div class="row-content">
-        <label class="label text" for="startDate">Start Date </label>
+        <label class="label text" id="date" for="department">Start Date </label>
         <div>
             <select name="Day" id="day">
                 <option value="1">1</option>
@@ -131,11 +131,13 @@
                 <option value="12">December</option>
             </select>
             <select name="year" id="year">
+                <option value="2021">2021</option>
                 <option value="2020">2020</option>
                 <option value="2019">2019</option>
                 <option value="2018">2018</option>
                 <option value="2017">2017</option>
                 <option value="2016">2016</option>
+                <error-output class="date-error" for="text"></error-output>
             </select>
             
         </div>
