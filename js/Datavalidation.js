@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
     name.oninput = function () {
         if (name.value.length == 0) {
             textError.textContent = "";
-            return;
+            
         }
         try {
             (new EmployeePayrollData()).name = name.value;
@@ -14,6 +14,17 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     };        
 
+    const date = document.querySelector('#date');
+    const dateError = document.querySelector('.date-error');
+    date.addEventListener('input', function() {
+        let startDate = document.querySelector('#day').value+"-"+document.querySelector('#month').value+"-"+document.querySelector('#year').value;
+        try {
+            (new EmployeePayrollData()).startDate = new Date(Date.parse(startDate));
+            dateError.textContent="";
+        } catch(e) {
+            dateError.textContent=e;
+        }
+    });
 
     const salary = document.querySelector('#salary');
     const output = document.querySelector('.salary-output');
