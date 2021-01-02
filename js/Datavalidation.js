@@ -12,7 +12,9 @@ window.addEventListener('DOMContentLoaded', () => {
         } catch (e) {
             textError.textContent = e;
         }
-    };        
+    };   
+});
+    
 
     const date = document.querySelector('#date');
     const dateError = document.querySelector('.date-error');
@@ -31,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
     output.textContent = salary.value;
     salary.addEventListener('input', function () {
         output.textContent = salary.value;
-    });
+    
 });
 
 const save = () => {
