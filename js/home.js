@@ -1,19 +1,28 @@
-window.addEventListener('DOMContentLoaded', (event) => {
+let empPayrollList;
+window.addEventListener('DOMContentLoaded', () => {
+    empPayrollList = getEmployeeDataFromStorage();
+    document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();
 });
 
+const getEmployeeDataFromStorage = () => {
+    return localStorage.getItem('EmployeePayrollList') ? JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
+}
+
+
 const createInnerHtml = () => {
-    const headerHtml = "<tr>"
-                        + " <th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th>"
-                        + "<th>StartDate</th><th>Actions</th>"
+    const headerHTML = "<tr>" 
+                        + "<th></th>    <th> Name </th>    <th> Gender </th>" 
+                        + "<th> Department </th>    <th> Salary </th> "
+                        + "<th> Start Date </th>    <th> Actions </th>"
                         + "</tr>";
+    if(empPayrollList.length == 0) return;
     let innerHtml = `${headerHtml}`;
-    let employeePayrollData=createEmployeePayrollJSON();
-    for(let empPayrollData of empPayrollList) {
+    for(const empPayrollData of empPayrollList) {
         innerHtml = `${innerHtml}
         <tr>
-            <td><img class="profile" alt=""
-                src="../assets/profile-images/Ellipse -3.png"></td>
+            <td><img class="profile" 
+                src="${employeePayrollData._profilePic}" alt=""></td>
             <td>${employeePayrollData._name}</td>
             <td>${employeePayrollData._gender}</td>
             <td>${getDeptHtml(empPayrollData._department)}</td>
@@ -31,35 +40,7 @@ const createInnerHtml = () => {
     document.querySelector('#table-display').innerHTML = innerHtml;
 }
 
-const createEmployeePayrollJSON = () => {
-    let empPayrollListLocal = [
-        {
-            _name:'Sherlock holmes',
-            _gender:'Male',
-            _department:[
-                'HR'
-            ],
-            _salary:'500000',
-            _startDate: '29 Oct 2019',
-            _note: '',
-            _id: new Date().getTime(),
-            _profilePic: '../assets/profile-images/Ellipse -1.png'
-        },
-        {
-            _name:'Watson',
-            _gender:'Male',
-            _department:[
-                'Engineering'
-            ],
-            _salary:'400000',
-            _startDate: '29 Aug 2019',
-            _note: '',
-            _id: new Date().getTime() + 1,
-            _profilePic: '../assets/profile-images/Ellipse-2.png'
-        }
-    ];
-    return empPayrollListLocal;
-}
+
 
 const getDeptHtml = (deptList) => {
     let deptHtml = '';
